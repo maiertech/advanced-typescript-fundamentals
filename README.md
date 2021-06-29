@@ -94,6 +94,17 @@ npx tsc --project 03-unknown-type/ && node 03-unknown-type/index.js
 ```
 
 Whenever you intend to use `any`, you should use `unknown`. With `any` you lose
-the benefits that TS gives you and it spreads through your projects due to type
-inference. `unknown` is a better choice because TS forces you to put the correct
-checks in place.
+the benefits that TypeScript (TS) gives you and it spreads through your projects
+due to type inference. `unknown` is a better choice because TS forces you to put
+the correct checks in place.
+
+## Assertion functions
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/04-assertion-functions/index.ts)
+
+```bash
+npx tsc --project 04-assertion-functions/ && node 04-assertion-functions/index.js
+```
+
+Assertion functions can be used to narrow the `unknown` type. Assertion
+functions assert a condition that helps TS inferring types.
