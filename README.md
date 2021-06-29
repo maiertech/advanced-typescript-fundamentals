@@ -1,4 +1,7 @@
-# advanced-typescript-fundamentals
+# Advanced TypeScript fundamentals
+
+My course notes for
+https://egghead.io/courses/advanced-typescript-fundamentals-579c174f.
 
 ## Optional chaining
 
