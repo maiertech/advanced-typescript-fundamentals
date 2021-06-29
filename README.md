@@ -5,11 +5,13 @@ https://egghead.io/courses/advanced-typescript-fundamentals-579c174f.
 
 ## Optional chaining
 
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/01-optional-chaining/index.ts)
+
 ```bash
 npx tsc --project 01-optional-chaining/ && node 01-optional-chaining/index.js
 ```
 
-Use optionsl chaining to replace
+Use optional chaining to replace
 
 ```ts
 const value = options ? options.formatting : undefined;
@@ -51,6 +53,8 @@ const indent = options.formatting.getIndent?.();
 
 ## Nullish coalescing operator
 
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/02-nullish-coalescing-operator/index.ts)
+
 ```bash
 npx tsc --project 02-nullish-coalescing-operator/ && node 02-nullish-coalescing-operator/index.js
 ```
@@ -80,3 +84,16 @@ left hand side is nullish:
 | `0 ?? 2`         | 0            |
 
 Use `??` to provide a fallback value for nullish values.
+
+## Unknown type
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/03-unknown-type/index.ts)
+
+```bash
+npx tsc --project 03-unknown-type/ && node 03-unknown-type/index.js
+```
+
+Whenever you intend to use `any`, you should use `unknown`. With `any` you lose
+the benefits that TS gives you and it spreads through your projects due to type
+inference. `unknown` is a better choice because TS forces you to put the correct
+checks in place.
