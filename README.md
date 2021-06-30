@@ -170,7 +170,24 @@ assertionIsNonNullish(root, "Coudn't find DOM element #root.");
 npx tsc --project 06-private-modifier/ && node 06-private-modifier/index.js
 ```
 
+In JS classes `_` is a non-enforced convention to express the intention that a
+field is private.
+
 The `private` modifier for classes will warn you about inappropriate usage of
 the `_value` field (accessing it outside the class) but not provide any runtime
-protection. You can even circumvent the warning by using index notation to
-access a private field, e.g. `counter["_value"]`.
+protection.
+
+You can even circumvent the warning by using index notation to access a private
+field, e.g. `counter["_value"]`.
+
+## Truly private class fields
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/07-truly-private-class-fields/index.ts)
+
+```bash
+npx tsc --project 07-truly-private-class-fields/ && node 07-truly-private-class-fields/index.js
+```
+
+Private class fields are not TS specific. But `target` in `tsconfig.json` needs
+to be set to at least `es2015` because TS uses a `WeakMap` to transpile truly
+private fields.
