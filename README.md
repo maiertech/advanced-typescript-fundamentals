@@ -108,3 +108,56 @@ npx tsc --project 04-assertion-functions/ && node 04-assertion-functions/index.j
 
 Assertion functions can be used to narrow the `unknown` type. Assertion
 functions assert a condition that helps TS inferring types.
+
+## Null checking
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/05-null-checking/index.ts)
+
+We start with
+
+```ts
+const root = document.getElementById('root');
+```
+
+which can be null. Accessing anything on root will trigger a TS warning. This
+warning can be addressed in different ways.
+
+### Non-null assertion operator
+
+```ts
+const root = document.getElementById('root')!;
+```
+
+This makes the warning go away but provides no runtime protection.
+
+### Classic null check
+
+Adding this null check will elimininate the warning and provide runtime
+protection:
+
+```ts
+if (root === null) {
+  throw Error("Coudn't find DOM element #root.");
+}
+```
+
+### Assertion function
+
+This assertion function asserts that a value is not nullish:
+
+```ts
+function assertionIsNonNullish<T>(
+  value: T,
+  message: string
+): asserts value is NonNullable<T> {
+  if (value === null || value === undefined) {
+    throw Error(message);
+  }
+}
+```
+
+Run it on `root`:
+
+```ts
+assertionIsNonNullish(root, "Coudn't find DOM element #root.");
+```
