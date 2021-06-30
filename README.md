@@ -3,7 +3,7 @@
 My course notes for
 https://egghead.io/courses/advanced-typescript-fundamentals-579c174f.
 
-## Optional chaining
+## 01 Optional chaining
 
 [Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/01-optional-chaining/index.ts)
 
@@ -51,7 +51,7 @@ or `()`
 const indent = options.formatting.getIndent?.();
 ```
 
-## Nullish coalescing operator
+## 02 Nullish coalescing operator
 
 [Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/02-nullish-coalescing-operator/index.ts)
 
@@ -85,7 +85,7 @@ left hand side is nullish:
 
 Use `??` to provide a fallback value for nullish values.
 
-## Unknown type
+## 03 Unknown type
 
 [Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/03-unknown-type/index.ts)
 
@@ -98,7 +98,7 @@ the benefits that TypeScript (TS) gives you and it spreads through your projects
 due to type inference. `unknown` is a better choice because TS forces you to put
 the correct checks in place.
 
-## Assertion functions
+## 04 Assertion functions
 
 [Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/04-assertion-functions/index.ts)
 
@@ -109,7 +109,7 @@ npx tsc --project 04-assertion-functions/ && node 04-assertion-functions/index.j
 Assertion functions can be used to narrow the `unknown` type. Assertion
 functions assert a condition that helps TS inferring types.
 
-## Null checking
+## 05 Null checking
 
 [Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/05-null-checking/index.ts)
 
@@ -161,3 +161,16 @@ Run it on `root`:
 ```ts
 assertionIsNonNullish(root, "Coudn't find DOM element #root.");
 ```
+
+## 06 Private modifier
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/06-private-modifier/index.ts)
+
+```bash
+npx tsc --project 06-private-modifier/ && node 06-private-modifier/index.js
+```
+
+The `private` modifier for classes will warn you about inappropriate usage of
+the `_value` field (accessing it outside the class) but not provide any runtime
+protection. You can even circumvent the warning by using index notation to
+access a private field, e.g. `counter["_value"]`.
