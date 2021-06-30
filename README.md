@@ -191,3 +191,11 @@ npx tsc --project 07-truly-private-class-fields/ && node 07-truly-private-class-
 Private class fields are not TS specific. But `target` in `tsconfig.json` needs
 to be set to at least `es2015` because TS uses a `WeakMap` to transpile truly
 private fields.
+
+## Truly private variables in enclosures
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/08-truly-private-variables-in-enclosures/index.ts)
+
+```bash
+npx tsc --project 08-truly-private-variables-in-enclosures/ && node 08-truly-private-variables-in-enclosures/index.js
+```
