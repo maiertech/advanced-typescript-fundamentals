@@ -180,7 +180,7 @@ protection.
 You can even circumvent the warning by using index notation to access a private
 field, e.g. `counter["_value"]`.
 
-## Truly private class fields
+## 07 Truly private class fields
 
 [Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/07-truly-private-class-fields/index.ts)
 
@@ -192,10 +192,67 @@ Private class fields are not TS specific. But `target` in `tsconfig.json` needs
 to be set to at least `es2015` because TS uses a `WeakMap` to transpile truly
 private fields.
 
-## Truly private variables in enclosures
+## 08 Truly private variables in enclosures
 
 [Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/08-truly-private-variables-in-enclosures/index.ts)
 
 ```bash
 npx tsc --project 08-truly-private-variables-in-enclosures/ && node 08-truly-private-variables-in-enclosures/index.js
 ```
+
+To support older JS versions, you can implement truly private variables with
+enclosures.
+
+## 09 Initialization of class instance variables
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/09-initialization-of-class-instance-variables/index.ts)
+
+```bash
+npx tsc --project 09-initialization-of-class-instance-variables/ && node 09-initialization-of-class-instance-variables/index.js
+```
+
+TS can only infer that a property has been assigned in the constructor if you do
+so explicitly, e.g.
+
+```ts
+class User {
+  username: string;
+
+  constructor(username: string) {
+    this.username = username;
+  }
+
+  setUsername(username: string) {
+    this.username = username;
+  }
+}
+```
+
+but it can't if you do this any other way, e.g.
+
+```ts
+class User {
+  username: string;
+
+  constructor(username: string) {
+    this.initialize(username);
+  }
+
+  initialize(username: string) {
+    this.username = username;
+  }
+}
+```
+
+You will get a
+`Property 'username' has no initializer and is not definitely assigned in the constructor.`
+error.
+
+You can use the definite assignment assertion to fix this:
+
+```ts
+username!: string;
+```
+
+But the recommended approach is to initialize all of your properties in the
+constructor.
