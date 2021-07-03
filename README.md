@@ -256,3 +256,11 @@ username!: string;
 
 But the recommended approach is to initialize all of your properties in the
 constructor.
+
+## 10 Read-only array types
+
+[Example](https://github.com/maiertech/advanced-typescript-fundamentals/blob/main/10-read-only-array-types/index.ts)
+
+```bash
+npx tsc --project 10-read-only-array-types/ && node 10-read-only-array-types/index.js
+```
